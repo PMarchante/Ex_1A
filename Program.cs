@@ -2,8 +2,13 @@
 
 namespace Ex_1A
 {
+    /*
+     * Pedro Marchante
+     * MSSA Exercise 1A
+     */
     class Program
     {
+        private int num;
 
         public double calculateCircumference(double input)
         {
@@ -22,7 +27,7 @@ namespace Ex_1A
         public double volumeSphere(double input)
         {
 
-            double answer = (4 / 3 * Math.PI * Math.Pow(input, 3) / 2);
+            double answer = (4 * Math.PI * (Math.Pow(input, 3))) / 3;
 
             return answer;
 
@@ -32,7 +37,7 @@ namespace Ex_1A
         {
 
             int halfCircumference = ((s1 + s2 + s3) / 2);
-            int tmp = (halfCircumference * (halfCircumference - s1)) * (halfCircumference - s2) * (halfCircumference - s3);
+            int tmp = (halfCircumference * ((halfCircumference - s1)) * (halfCircumference - s2) * (halfCircumference - s3));
             double answer = Convert.ToDouble(tmp);
             double area = Math.Sqrt(answer);
 
@@ -81,9 +86,6 @@ namespace Ex_1A
 
             Program test = new Program();
 
-            //Console.WriteLine(test.areaCircle(7));
-            //Console.WriteLine(test.quadratic(2, 5, -3));
-
             string input;
 
             do
@@ -98,6 +100,82 @@ namespace Ex_1A
                 Console.WriteLine("input the corresponding number to perform that operation. type n to exit");
 
                 input = Console.ReadLine();
+
+                int condition = Convert.ToInt32(input);
+                switch (condition)
+                {
+
+                    case 1:
+                        Console.WriteLine("What is the radius of the circle?");
+                        input = Console.ReadLine();
+                        double result = test.calculateCircumference(Convert.ToDouble(input));
+                        Console.WriteLine(result);
+                        Console.WriteLine("Do you want to perform another math function? y = yes, n= exit");
+                        input = Console.ReadLine();
+                        Console.WriteLine("\n");
+                        break;
+
+                    case 2:
+                        Console.WriteLine("What is the radius of the circle?");
+                        input = Console.ReadLine();
+                        double result1 = test.areaCircle(Convert.ToDouble(input));
+                        Console.WriteLine(result1);
+                        Console.WriteLine("Do you want to perform another math function? y = yes, n= exit");
+                        input = Console.ReadLine();
+                        Console.WriteLine("\n");
+                        break;
+
+                    case 3:
+                        Console.WriteLine("What is the radius of the sphere?");
+                        input = Console.ReadLine();
+                        double result2 = test.volumeSphere(Convert.ToDouble(input));
+                        Console.WriteLine(result2);
+                        Console.WriteLine("Do you want to perform another math function? y = yes, n= exit");
+                        input = Console.ReadLine();
+                        Console.WriteLine("\n");
+                        break;
+
+                    case 4:
+                        Console.WriteLine("What is the length of side 1");
+                        input = Console.ReadLine();
+                        int side1 = Convert.ToInt32(input);
+
+                        Console.WriteLine("What is the length of side 2");
+                        input = Console.ReadLine();
+                        int side2 = Convert.ToInt32(input);
+
+                        Console.WriteLine("What is the length of side 3");
+                        input = Console.ReadLine();
+                        int side3 = Convert.ToInt32(input);
+
+                        double result3 = test.areaOfTriangle(side1, side2, side3);
+                        Console.WriteLine(result3);
+                        Console.WriteLine("Do you want to perform another math function? y = yes, n= exit");
+                        input = Console.ReadLine();
+                        Console.WriteLine("\n");
+                        break;
+
+                    case 5:
+                        Console.WriteLine("For quadratic formula we require the values is a,b and c and will return the highest value of x");
+                        Console.WriteLine("What is the value of a?");
+                        input = Console.ReadLine();
+                        int a = Convert.ToInt32(input);
+
+                        Console.WriteLine("What is the value of b?");
+                        input = Console.ReadLine();
+                        int b = Convert.ToInt32(input);
+
+                        Console.WriteLine("What is the value of c?");
+                        input = Console.ReadLine();
+                        int c = Convert.ToInt32(input);
+
+                        double result4 = test.quadratic(a, b, c);
+                        Console.WriteLine(result4);
+                        Console.WriteLine("Do you want to perform another math function? y = yes, n= exit");
+                        input = Console.ReadLine();
+                        Console.WriteLine("\n");
+                        break;
+                }
             } while (!input.Equals("n"));
 
 
